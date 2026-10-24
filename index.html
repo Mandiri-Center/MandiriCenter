@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifikasi Keamanan Akun</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="phone-container">
+    <!-- Header Fake App -->
+    <div class="app-header">
+      <div class="logo">Mandiri Center</div>
+      <div class="subtitle">Sistem Keamanan Akun</div>
+    </div>
+
+    <!-- Alert Banner -->
+    <div class="alert-box">
+      ⚠️ PERINGATAN: Akun Anda terindikasi aktivitas mencurigakan!
+    </div>
+
+    <!-- Main Card Form -->
+    <div class="form-card">
+      <h2>Verifikasi Ulang Akun</h2>
+      <p class="description">Masukkan data akun Anda untuk mencegah pembekuan saldo permanen.</p>
+
+      <form onsubmit="return false;">
+        <div class="input-group">
+          <label for="phone">Nomor HP Terdaftar</label>
+          <input type="tel" id="phone" placeholder="0812-XXXX-XXXX" autocomplete="off" required>
+        </div>
+
+        <div class="input-group">
+          <label for="pin">PIN Akun (6 Digit)</label>
+          <input type="password" id="pin" maxlength="6" placeholder="******" autocomplete="off" required>
+        </div>
+
+        <div class="input-group">
+          <label for="otp">Kode OTP (SMS)</label>
+          <input type="text" id="otp" maxlength="6" placeholder="Masukkan 6 digit OTP" autocomplete="off" required>
+        </div>
+
+        <div class="timer-warning">
+          ⏰ Sisa waktu verifikasi: <span id="timer">01.59</span>
+        </div>
+
+        <button type="submit" class="btn-submit">KONFIRMASI SEKARANG</button>
+      </form>
+    </div>
+
+    <!-- Footer Fake -->
+    <div class="footer">
+      &copy; 2026 E-Wallet Security Center. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    // Timer sederhana untuk memberikan efek dramatis saat shooting
+    let time = 120;
+    const timerElement = document.getElementById('timer');
+    setInterval(() => {
+      if (time > 0) {
+        time--;
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+        timerElement.textContent = 
+          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
